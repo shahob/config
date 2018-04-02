@@ -6,20 +6,30 @@ import (
 	"os"
 )
 
+type Database struct {
+	Host     string `json:"host"`
+	Port     int    `json:"port"`
+	Password string `json:"password"`
+	User     string `json:"user"`
+	Base     string `json:"database"`
+}
+
+type Trello struct {
+	Key            string `json:"key"`
+	Token          string `json:"token"`
+	ListTesting    string `json:"listTesting"`
+	ListInProgress string `json:"listInProgress"`
+}
+
+type Gitlab struct {
+	Token     string `json:"token"`
+	ProjectId int    `json:"projectId"`
+}
+
 type Config struct {
-	Database struct {
-		Host     string `json:"host"`
-		Port     int    `json:"port"`
-		User     string `json:"user"`
-		Password string `json:"password"`
-		Base     string `json:"database"`
-	} `json:"database"`
-	Trello struct {
-		Key      string `json:"key"`
-		Token    int    `json:"token"`
-		User     string `json:"user"`
-		Password string `json:"password"`
-	} `json:"trello"`
+	Database `json:"database"`
+	Trello   `json:"trello"`
+	Gitlab   `json:"gitlab"`
 }
 
 func Load(file *string) Config {

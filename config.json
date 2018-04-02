@@ -1,0 +1,19 @@
+{
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "password": "pwd",
+    "user": "usr",
+    "database": "db"
+  },
+  "trello": {
+    "key": "key",
+    "token": "token",
+    "listTesting": "id",
+    "listInProgress": "id"
+  },
+  "gitlab": {
+    "token": "token",
+    "projectId": 1
+  }
+}
