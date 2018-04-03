@@ -1,3 +1,58 @@
 [![Build Status](https://travis-ci.org/shahob/config.svg?branch=master)](https://travis-ci.org/shahob/config)
 
-# Config
+# Yet another JSON configuration file reader
+
+Is a lightweight Golang package :beer:
+
+## Installation
+
+```
+    go get github.com/shahob/config
+```
+
+# Usage
+
+JSON configuration file example
+
+```json
+{
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "password": "password",
+    "user": "user",
+    "database": "database"
+  }
+}
+```
+
+Create `Config` struct type from JSON format
+
+```golang
+type Database struct {
+	Host     string `json:"host"`
+	Port     int    `json:"port"`
+	Password string `json:"password"`
+	User     string `json:"user"`
+	Base     string `json:"database"`
+}
+
+type Config struct {
+	Database `json:"database"`
+}
+```
+
+```golang
+import (
+	"fmt"
+
+	"github.com/shahob/config"
+)
+
+configuration := Config{}
+
+	// get configuration file
+	config.Load(*configPath, &configuration)
+
+	fmt.Println(configuration.Database.Host)
+```

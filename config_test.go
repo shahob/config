@@ -4,6 +4,20 @@ import (
 	"testing"
 )
 
+type Database struct {
+	Host     string `json:"host"`
+	Port     int    `json:"port"`
+	Password string `json:"password"`
+	User     string `json:"user"`
+	Base     string `json:"database"`
+}
+
+type Config struct {
+	Database `json:"database"`
+}
+
+const DefaultConfigFilePath = "config.json"
+
 func TestLoad(t *testing.T) {
 	testConfig := Config{
 		Database{
@@ -13,22 +27,13 @@ func TestLoad(t *testing.T) {
 			"usr",
 			"db",
 		},
-		Trello{
-			"key",
-			"token",
-			"id",
-			"id",
-		},
-		Gitlab{
-			"token",
-			1,
-		},
 	}
 
-	filePath := "config.json"
-	config := Load(&filePath)
+	configuration := Config{}
 
-	if config != testConfig {
+	Load(DefaultConfigFilePath, &configuration)
+
+	if configuration != testConfig {
 		t.Errorf("Incorrect configuration file")
 	}
 }
