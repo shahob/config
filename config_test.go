@@ -29,6 +29,6 @@ func TestLoad(t *testing.T) {
 	config := Load(&filePath)
 
 	if config != testConfig {
-		t.Errorf("Error")
+		t.Errorf("Incorrect configuration file")
 	}
 }
