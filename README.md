@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/shahob/config.svg?branch=master)](https://travis-ci.org/shahob/config)
+[![Go Report Card](https://goreportcard.com/badge/github.com/shahob/config)](https://goreportcard.com/report/github.com/shahob/config)
 
 # Yet another JSON configuration file reader
 
