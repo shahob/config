@@ -52,7 +52,11 @@ import (
 configuration := Config{}
 
 // get configuration file
-config.Load(*configPath, &configuration)
+err := config.Load(*configPath, &configuration)
+
+if err != nil {
+		fmt.Println(err.Error())
+}
 
 fmt.Println(configuration.Database.Host)
 ```

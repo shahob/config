@@ -1,11 +1,16 @@
 language: go
 
-go:
-  - "1.10"
+branches:
+  only:
   - master
+
+go:
+  - "1.9"
+  - "1.10"
 
 notifications:
   email: false
 
 script:
   - go test -v ./...
+  - go vet ./...

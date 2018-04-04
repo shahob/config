@@ -31,7 +31,11 @@ func TestLoad(t *testing.T) {
 
 	configuration := Config{}
 
-	Load(DefaultConfigFilePath, &configuration)
+	err := Load(DefaultConfigFilePath, &configuration)
+
+	if err != nil {
+		t.Errorf(err.Error())
+	}
 
 	if configuration != testConfig {
 		t.Errorf("Incorrect configuration file")

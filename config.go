@@ -2,17 +2,16 @@ package config
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 )
 
-func Load(filePath string, configuration interface{}) interface{} {
+func Load(filePath string, configuration interface{}) error {
 	configFile, err := os.Open(filePath)
 	defer configFile.Close()
 	if err != nil {
-		fmt.Errorf(err.Error())
+		return err
 	}
 	jsonParser := json.NewDecoder(configFile)
 	jsonParser.Decode(&configuration)
-	return configuration
+	return nil
 }
