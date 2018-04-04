@@ -6,11 +6,11 @@ Is a lightweight Golang package :beer:
 
 ## Installation
 
-```
-    go get github.com/shahob/config
+```bash
+go get github.com/shahob/config
 ```
 
-# Usage
+## Usage
 
 JSON configuration file example
 
@@ -51,8 +51,14 @@ import (
 
 configuration := Config{}
 
-	// get configuration file
-	config.Load(*configPath, &configuration)
+// get configuration file
+config.Load(*configPath, &configuration)
 
-	fmt.Println(configuration.Database.Host)
+fmt.Println(configuration.Database.Host)
 ```
+
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
