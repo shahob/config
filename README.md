@@ -55,7 +55,7 @@ configuration := Config{}
 err := config.Load(*configPath, &configuration)
 
 if err != nil {
-		fmt.Println(err.Error())
+	fmt.Println(err.Error())
 }
 
 fmt.Println(configuration.Database.Host)
